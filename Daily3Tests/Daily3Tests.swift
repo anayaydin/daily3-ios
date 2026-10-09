@@ -5,38 +5,64 @@
 //  Created by Ayse Nur AYAYDIN on 7.10.2026.
 //
 
+import Foundation
+import SwiftData
 import Testing
 @testable import Daily3
 
 struct Daily3Tests {
 
     @Test func newDayStartsWithThreeEmptyTasks() {
-        let todayTasks = TodayTasks()
+        let entry = DailyEntry(date: .now)
 
-        #expect(todayTasks.tasks.count == 3)
-        #expect(todayTasks.filledCount == 0)
-        #expect(todayTasks.completedCount == 0)
-        #expect(todayTasks.isDayComplete == false)
+        #expect(entry.tasks.count == 3)
+        #expect(entry.filledCount == 0)
+        #expect(entry.completedCount == 0)
+        #expect(entry.isDayComplete == false)
     }
 
     @Test func completedCountOnlyIncludesFilledTasks() {
-        var todayTasks = TodayTasks()
-        todayTasks.tasks[0].title = "Write project README"
-        todayTasks.tasks[0].isCompleted = true
-        todayTasks.tasks[1].isCompleted = true
+        let entry = DailyEntry(date: .now)
+        entry.tasks[0].title = "Write project README"
+        entry.tasks[0].isCompleted = true
+        entry.tasks[1].isCompleted = true
 
-        #expect(todayTasks.filledCount == 1)
-        #expect(todayTasks.completedCount == 1)
+        #expect(entry.filledCount == 1)
+        #expect(entry.completedCount == 1)
     }
 
     @Test func dayIsCompleteWhenAllThreeFilledTasksAreCompleted() {
-        var todayTasks = TodayTasks()
+        let entry = DailyEntry(date: .now)
 
-        todayTasks.tasks[0] = DailyTask(id: 1, title: "Plan", isCompleted: true)
-        todayTasks.tasks[1] = DailyTask(id: 2, title: "Build", isCompleted: true)
-        todayTasks.tasks[2] = DailyTask(id: 3, title: "Review", isCompleted: true)
+        entry.tasks[0].title = "Plan"
+        entry.tasks[0].isCompleted = true
+        entry.tasks[1].title = "Build"
+        entry.tasks[1].isCompleted = true
+        entry.tasks[2].title = "Review"
+        entry.tasks[2].isCompleted = true
 
-        #expect(todayTasks.isDayComplete)
+        #expect(entry.isDayComplete)
+    }
+
+    @Test func entryCanBeSavedInSwiftDataContainer() throws {
+        let configuration = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(
+            for: DailyEntry.self,
+            DailyTaskItem.self,
+            configurations: configuration
+        )
+        let context = ModelContext(container)
+        let entry = DailyEntry(date: .now)
+
+        entry.tasks[0].title = "Plan the day"
+        context.insert(entry)
+        try context.save()
+
+        let savedEntries = try context.fetch(FetchDescriptor<DailyEntry>())
+
+        #expect(savedEntries.count == 1)
+        #expect(savedEntries[0].tasks.count == 3)
+        #expect(savedEntries[0].filledCount == 1)
     }
 
 }
