@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct Daily3App: App {
@@ -13,5 +14,6 @@ struct Daily3App: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: [DailyEntry.self, DailyTaskItem.self])
     }
 }
