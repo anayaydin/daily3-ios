@@ -19,10 +19,10 @@ The idea is simple:
 
 ## Status
 
-🚧 **Foundation**
+🚧 **Persistence with SwiftData**
 
-The Xcode project and Git repository are set up.
-The first application features are next.
+Foundation and the first Today / MVP implementation are complete.
+The next phase is saving daily tasks locally with SwiftData.
 
 ## Tech
 
@@ -36,8 +36,8 @@ The first application features are next.
 ## Roadmap
 
 - [x] Foundation
-- [ ] Today / MVP
-- [ ] Persistence
+- [x] Today / MVP
+- [ ] Persistence with SwiftData
 - [ ] Calendar
 - [ ] Statistics
 - [ ] Notifications

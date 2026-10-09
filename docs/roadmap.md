@@ -10,9 +10,13 @@ experience and expanding only when each feature supports the main idea.
 - GitHub repository
 - Initial product documentation
 
-## 1. Today / MVP
+## 1. Today / MVP ✅
 
 Build the core Daily 3 experience.
+
+Status: Completed as the first in-memory MVP. The app now has a Today
+screen with three editable priorities, completion toggles, progress
+feedback, and basic unit/UI test coverage.
 
 - Today screen
 - Three task slots
@@ -21,7 +25,7 @@ Build the core Daily 3 experience.
 - 0/3 → 3/3 daily progress
 - Empty and completed states
 
-## 2. Persistence
+## 2. Persistence with SwiftData
 
 Store daily tasks locally using SwiftData.
 
