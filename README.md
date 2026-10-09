@@ -19,10 +19,10 @@ The idea is simple:
 
 ## Status
 
-🚧 **Persistence with SwiftData**
+🚧 **Calendar**
 
-Foundation and the first Today / MVP implementation are complete.
-The next phase is saving daily tasks locally with SwiftData.
+Foundation, the Today / MVP implementation, and SwiftData persistence are complete.
+The next phase is making previous days and progress visible with a calendar.
 
 ## Tech
 
@@ -37,7 +37,7 @@ The next phase is saving daily tasks locally with SwiftData.
 
 - [x] Foundation
 - [x] Today / MVP
-- [ ] Persistence with SwiftData
+- [x] Persistence with SwiftData
 - [ ] Calendar
 - [ ] Statistics
 - [ ] Notifications

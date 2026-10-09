@@ -25,9 +25,13 @@ feedback, and basic unit/UI test coverage.
 - 0/3 → 3/3 daily progress
 - Empty and completed states
 
-## 2. Persistence with SwiftData
+## 2. Persistence with SwiftData ✅
 
 Store daily tasks locally using SwiftData.
+
+Status: Completed. Daily entries and their three priority tasks are now
+stored with SwiftData, and task titles plus completion states remain
+available after the app is closed and reopened.
 
 - Save and load tasks
 - Store completion state
