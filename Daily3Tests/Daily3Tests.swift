@@ -65,4 +65,29 @@ struct Daily3Tests {
         #expect(savedEntries[0].filledCount == 1)
     }
 
+    @Test func calendarReturnsStartOfMonth() throws {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = TimeZone(secondsFromGMT: 0) ?? .current
+        let date = try #require(calendar.date(from: DateComponents(year: 2026, month: 10, day: 12)))
+        let monthStart = calendar.startOfMonth(for: date)
+
+        #expect(calendar.component(.year, from: monthStart) == 2026)
+        #expect(calendar.component(.month, from: monthStart) == 10)
+        #expect(calendar.component(.day, from: monthStart) == 1)
+    }
+
+    @Test func calendarMonthGridContainsEveryDayInMonth() throws {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = TimeZone(secondsFromGMT: 0) ?? .current
+        calendar.firstWeekday = 2
+        let date = try #require(calendar.date(from: DateComponents(year: 2026, month: 10, day: 12)))
+        let grid = calendar.monthGridDates(containing: date)
+        let actualDays = grid.compactMap { $0 }
+
+        #expect(grid.count % 7 == 0)
+        #expect(actualDays.count == 31)
+        #expect(calendar.component(.day, from: actualDays[0]) == 1)
+        #expect(calendar.component(.day, from: actualDays[30]) == 31)
+    }
+
 }
