@@ -34,6 +34,16 @@ final class Daily3UITests: XCTestCase {
     }
 
     @MainActor
+    func testCalendarTabShowsCalendarScreen() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        app.tabBars.buttons["Calendar"].tap()
+
+        XCTAssertTrue(app.navigationBars["Calendar"].exists)
+    }
+
+    @MainActor
     func testLaunchPerformance() throws {
         // This measures how long it takes to launch your application.
         measure(metrics: [XCTApplicationLaunchMetric()]) {
