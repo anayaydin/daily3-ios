@@ -19,10 +19,11 @@ The idea is simple:
 
 ## Status
 
-🚧 **Calendar**
+🚧 **Statistics planned next**
 
-Foundation, the Today / MVP implementation, and SwiftData persistence are complete.
-The next phase is making previous days and progress visible with a calendar.
+Foundation, the Today / MVP implementation, SwiftData persistence, and the
+monthly calendar are complete. The next phase is adding statistics to
+show progress over time.
 
 ## Tech
 
@@ -38,7 +39,7 @@ The next phase is making previous days and progress visible with a calendar.
 - [x] Foundation
 - [x] Today / MVP
 - [x] Persistence with SwiftData
-- [ ] Calendar
+- [x] Calendar
 - [ ] Statistics
 - [ ] Notifications
 - [ ] Widget
