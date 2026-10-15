@@ -44,6 +44,80 @@ final class Daily3UITests: XCTestCase {
     }
 
     @MainActor
+    func testStatisticsShowsSummaryAndSwitchesTimeRange() throws {
+        let app = XCUIApplication()
+        app.launch()
+        app.tabBars.buttons["Statistics"].tap()
+
+        XCTAssertTrue(app.navigationBars["Statistics"].exists)
+        XCTAssertTrue(app.staticTexts["Completed priorities"].exists)
+        XCTAssertTrue(app.staticTexts["Completion rate"].exists)
+
+        let range = app.segmentedControls["statistics.period"]
+        XCTAssertTrue(range.buttons["7 Days"].isSelected)
+        range.buttons["30 Days"].tap()
+        XCTAssertTrue(range.buttons["30 Days"].isSelected)
+        range.buttons["7 Days"].tap()
+        XCTAssertTrue(range.buttons["7 Days"].isSelected)
+
+        let screenshot = XCTAttachment(screenshot: app.screenshot())
+        screenshot.name = "Statistics"
+        screenshot.lifetime = .keepAlways
+        add(screenshot)
+    }
+
+    @MainActor
+    func testStatisticsUpdatesAfterCompletingPriority() throws {
+        let app = XCUIApplication()
+        app.launch()
+        let field = app.textFields["Priority 1"]
+        let button = app.buttons["Priority 1 completion"]
+        let originalTitle = field.value as? String ?? ""
+        let wasEmpty = originalTitle == "Priority 1" || originalTitle.isEmpty
+        let wasCompleted = button.value as? String == "Completed"
+
+        if wasCompleted { button.tap() }
+        if wasEmpty {
+            field.tap()
+            field.typeText("Verify statistics\n")
+        }
+
+        defer {
+            app.tabBars.buttons["Today"].tap()
+            if (button.value as? String == "Completed") != wasCompleted {
+                button.tap()
+            }
+            if wasEmpty {
+                field.tap()
+                field.typeText(String(repeating: XCUIKeyboardKey.delete.rawValue, count: "Verify statistics".count) + "\n")
+            }
+        }
+
+        app.tabBars.buttons["Statistics"].tap()
+        let completed = app.descendants(matching: .any)["statistics.completed"].firstMatch
+        let before = try XCTUnwrap(Int(try XCTUnwrap(completed.value as? String)))
+
+        app.tabBars.buttons["Today"].tap()
+        button.tap()
+        app.tabBars.buttons["Statistics"].tap()
+
+        XCTAssertEqual(completed.value as? String, (before + 1).formatted())
+        XCTAssertTrue(app.descendants(matching: .any)["statistics.chart"].firstMatch.exists)
+
+        app.swipeUp()
+        let screenshot = XCTAttachment(screenshot: app.screenshot())
+        screenshot.name = "Statistics with completed priority"
+        screenshot.lifetime = .keepAlways
+        add(screenshot)
+
+        app.segmentedControls["statistics.period"].buttons["30 Days"].tap()
+        let monthScreenshot = XCTAttachment(screenshot: app.screenshot())
+        monthScreenshot.name = "Statistics 30 days"
+        monthScreenshot.lifetime = .keepAlways
+        add(monthScreenshot)
+    }
+
+    @MainActor
     func testLaunchPerformance() throws {
         // This measures how long it takes to launch your application.
         measure(metrics: [XCTApplicationLaunchMetric()]) {

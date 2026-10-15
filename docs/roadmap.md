@@ -54,9 +54,18 @@ cannot be selected.
 - Select previous days
 - View tasks from a selected day
 
-## 4. Statistics
+## 4. Statistics ✅
 
 Provide simple insights into progress.
+
+Status: Completed. The Statistics tab calculates all-time totals and
+shows daily completion charts for rolling 7-day and 30-day periods,
+including today.
+
+Completion rate is completed priorities divided by planned priorities.
+Empty task slots and future entries are excluded. With no planned
+priorities, the rate is unavailable rather than 0%. A 3/3 day requires
+three filled and completed priorities.
 
 - Total completed tasks
 - Number of 3/3 days

@@ -19,11 +19,12 @@ The idea is simple:
 
 ## Status
 
-🚧 **Statistics planned next**
+🚧 **Notifications planned next**
 
-Foundation, the Today / MVP implementation, SwiftData persistence, and the
-monthly calendar are complete. The next phase is adding statistics to
-show progress over time.
+Foundation, the Today / MVP implementation, SwiftData persistence, the
+monthly calendar, and statistics are complete. Statistics include all-time
+totals and daily completion charts for the last 7 or 30 days. The next
+phase is adding optional daily reminders.
 
 ## Tech
 
@@ -40,7 +41,7 @@ show progress over time.
 - [x] Today / MVP
 - [x] Persistence with SwiftData
 - [x] Calendar
-- [ ] Statistics
+- [x] Statistics
 - [ ] Notifications
 - [ ] Widget
 - [ ] Apple Watch
