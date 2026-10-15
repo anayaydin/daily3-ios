@@ -39,9 +39,14 @@ available after the app is closed and reopened.
 - Start each new day fresh
 - Preserve previous days as history
 
-## 3. Calendar
+## 3. Calendar ✅
 
 Make previous days and progress visible.
+
+Status: Completed. The Calendar tab now shows a monthly activity view,
+supports navigation between months and returning to today, and displays
+the selected day's priorities. Future days are visually disabled and
+cannot be selected.
 
 - Monthly calendar
 - 0/3 → 3/3 activity intensity
