@@ -9,6 +9,22 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
+    var body: some View {
+        TabView {
+            TodayView()
+                .tabItem {
+                    Label("Today", systemImage: "checkmark.circle")
+                }
+
+            CalendarView()
+                .tabItem {
+                    Label("Calendar", systemImage: "calendar")
+                }
+        }
+    }
+}
+
+private struct TodayView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \DailyEntry.date) private var entries: [DailyEntry]
 
