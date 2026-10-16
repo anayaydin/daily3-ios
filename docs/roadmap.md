@@ -94,6 +94,16 @@ background notification delivery has not yet been verified.
 
 Keep today's priorities visible from the Home Screen.
 
+Status: Implemented; awaiting Home Screen placement and refresh verification.
+A read-only small and medium widget shares today's
+priorities through an App Group snapshot without moving the SwiftData
+store. Its timeline includes an empty next-day state, and tapping it opens
+Today. See the [widget chapter](widget.md) for setup and manual checks.
+
+Automated tests cover shared snapshots, day rollover, the original database
+location and the Today deep link. Layout rendering checks include both
+sizes, empty and completed states, Dark Mode and large text.
+
 - Show today's three tasks
 - Show daily progress
 - Open Daily 3 from the widget

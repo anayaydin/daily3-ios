@@ -9,41 +9,75 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
+    private enum Tab { case today, calendar, statistics, settings }
+
     @Environment(\.scenePhase) private var scenePhase
+    @Environment(\.modelContext) private var modelContext
+    @Query(sort: \DailyEntry.date) private var entries: [DailyEntry]
     @State private var reminderSettings = ReminderSettings()
+    @State private var selectedTab: Tab = .today
+    @State private var currentDate = Date.now
+
+    private var widgetSnapshot: TodayWidgetSnapshot {
+        let entry = entries.first { Calendar.current.isDate($0.date, inSameDayAs: currentDate) }
+        return TodayWidgetSnapshot(entry: entry, date: currentDate)
+    }
 
     var body: some View {
-        TabView {
+        TabView(selection: $selectedTab) {
             TodayView()
+                .tag(Tab.today)
                 .tabItem {
                     Label("Today", systemImage: "checkmark.circle")
                 }
 
             CalendarView()
+                .tag(Tab.calendar)
                 .tabItem {
                     Label("Calendar", systemImage: "calendar")
                 }
 
             StatisticsView()
+                .tag(Tab.statistics)
                 .tabItem {
                     Label("Statistics", systemImage: "chart.bar")
                 }
 
             SettingsView(settings: reminderSettings)
+                .tag(Tab.settings)
                 .tabItem {
                     Label("Settings", systemImage: "gearshape")
                 }
         }
         .task { await reminderSettings.refresh() }
+        .task(id: widgetSnapshot) {
+            let snapshot = widgetSnapshot
+            do {
+                try await Task.sleep(for: .milliseconds(400))
+                WidgetSync.publish(snapshot, context: modelContext)
+            } catch {
+                // A newer edit cancels this task and publishes the latest snapshot.
+            }
+        }
+        .onOpenURL { url in
+            if url == Daily3WidgetConfiguration.todayURL {
+                selectedTab = .today
+                currentDate = .now
+            }
+        }
         .onChange(of: scenePhase) { _, phase in
             if phase == .active {
+                currentDate = .now
                 Task { await reminderSettings.refresh() }
+            } else if phase == .background {
+                WidgetSync.publish(widgetSnapshot, context: modelContext)
             }
         }
     }
 }
 
 private struct TodayView: View {
+    @Environment(\.scenePhase) private var scenePhase
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \DailyEntry.date) private var entries: [DailyEntry]
 
@@ -68,6 +102,9 @@ private struct TodayView: View {
             .navigationTitle("Daily 3")
             .background(Color(.systemGroupedBackground))
             .onAppear(perform: createTodayEntryIfNeeded)
+            .onChange(of: scenePhase) { _, phase in
+                if phase == .active { createTodayEntryIfNeeded() }
+            }
         }
     }
 

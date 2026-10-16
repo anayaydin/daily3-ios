@@ -19,13 +19,14 @@ The idea is simple:
 
 ## Status
 
-🚧 **Widget planned next**
+🚧 **Widget ready for Home Screen testing**
 
 Foundation, the Today / MVP implementation, SwiftData persistence, the
 monthly calendar, statistics, and notification implementation are complete.
 Statistics include all-time totals and daily completion charts for the last
 7 or 30 days. Optional morning and evening reminders have configurable
-times. The next phase is adding a Home Screen widget.
+times. Small and medium Home Screen widgets are implemented and ready for
+manual placement and refresh checks.
 
 ## Tech
 
@@ -56,3 +57,5 @@ times. The next phase is adding a Home Screen widget.
 🗺 [Full Roadmap](docs/roadmap.md)
 
 [Daily Reminders](docs/notifications.md)
+
+[Home Screen Widget](docs/widget.md)

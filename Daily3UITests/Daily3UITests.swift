@@ -118,6 +118,20 @@ final class Daily3UITests: XCTestCase {
     }
 
     @MainActor
+    func testWidgetLinkOpensTodayFromSettings() throws {
+        let app = XCUIApplication()
+        app.launch()
+        app.tabBars.buttons["Settings"].tap()
+        XCTAssertTrue(app.navigationBars["Settings"].exists)
+
+        app.open(try XCTUnwrap(URL(string: "daily3://today")))
+
+        XCTAssertTrue(app.navigationBars["Daily 3"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.textFields["Priority 1"].exists)
+        XCTAssertTrue(app.tabBars.buttons["Today"].isSelected)
+    }
+
+    @MainActor
     func testLaunchPerformance() throws {
         // This measures how long it takes to launch your application.
         measure(metrics: [XCTApplicationLaunchMetric()]) {
