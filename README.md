@@ -19,13 +19,13 @@ The idea is simple:
 
 ## Status
 
-🚧 **Notifications ready for manual testing**
+🚧 **Widget planned next**
 
 Foundation, the Today / MVP implementation, SwiftData persistence, the
-monthly calendar, and statistics are complete. Statistics include all-time
-totals and daily completion charts for the last 7 or 30 days. Optional
-morning and evening reminders are implemented and ready for a manual
-background-delivery check.
+monthly calendar, statistics, and notification implementation are complete.
+Statistics include all-time totals and daily completion charts for the last
+7 or 30 days. Optional morning and evening reminders have configurable
+times. The next phase is adding a Home Screen widget.
 
 ## Tech
 
@@ -43,7 +43,7 @@ background-delivery check.
 - [x] Persistence with SwiftData
 - [x] Calendar
 - [x] Statistics
-- [ ] Notifications
+- [x] Notifications
 - [ ] Widget
 - [ ] Apple Watch
 - [ ] UX & Polish
