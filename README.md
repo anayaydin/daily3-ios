@@ -19,12 +19,13 @@ The idea is simple:
 
 ## Status
 
-🚧 **Notifications planned next**
+🚧 **Notifications ready for manual testing**
 
 Foundation, the Today / MVP implementation, SwiftData persistence, the
 monthly calendar, and statistics are complete. Statistics include all-time
-totals and daily completion charts for the last 7 or 30 days. The next
-phase is adding optional daily reminders.
+totals and daily completion charts for the last 7 or 30 days. Optional
+morning and evening reminders are implemented and ready for a manual
+background-delivery check.
 
 ## Tech
 
@@ -53,3 +54,5 @@ phase is adding optional daily reminders.
 📖 [Project Idea](docs/00-project-idea.md)  
 🛠 [Project Setup](docs/01-project-setup.md)  
 🗺 [Full Roadmap](docs/roadmap.md)
+
+[Daily Reminders](docs/notifications.md)

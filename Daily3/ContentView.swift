@@ -9,6 +9,9 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
+    @Environment(\.scenePhase) private var scenePhase
+    @State private var reminderSettings = ReminderSettings()
+
     var body: some View {
         TabView {
             TodayView()
@@ -25,6 +28,17 @@ struct ContentView: View {
                 .tabItem {
                     Label("Statistics", systemImage: "chart.bar")
                 }
+
+            SettingsView(settings: reminderSettings)
+                .tabItem {
+                    Label("Settings", systemImage: "gearshape")
+                }
+        }
+        .task { await reminderSettings.refresh() }
+        .onChange(of: scenePhase) { _, phase in
+            if phase == .active {
+                Task { await reminderSettings.refresh() }
+            }
         }
     }
 }

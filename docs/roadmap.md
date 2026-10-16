@@ -76,6 +76,14 @@ three filled and completed priorities.
 
 Add optional daily reminders.
 
+Status: Implemented; awaiting manual notification-delivery verification.
+Settings includes independent morning and evening
+reminders with adjustable local times. Preferences use UserDefaults;
+UserNotifications schedules recurring notifications on the device.
+Permission is requested only when enabling a reminder. See the
+[daily reminders chapter](notifications.md) for the implementation and
+manual checks.
+
 - Morning reminder to choose today's priorities
 - Optional evening reminder
 - Notification settings
