@@ -114,9 +114,42 @@ Manual Home Screen placement and refresh verification is still pending.
 
 Bring the core Daily 3 experience to Apple Watch.
 
+Status: Implementation added; paired-device verification pending. The Watch
+app displays today's three priorities, allows completion changes, and keeps
+a local snapshot plus pending changes. iPhone remains the SwiftData source
+of truth. See the [Apple Watch chapter](apple-watch.md) for architecture,
+runtime requirements, test coverage, and manual checks.
+
+### Goal
+
+Make today's priorities available on the wrist without adding another
+planning interface or a second independent database.
+
+### Features
+
 - View today's priorities
-- Complete tasks from the watch
-- Keep progress synchronized with iPhone
+- Complete and uncomplete filled priorities from the Watch
+- Show daily progress and synchronization status
+- Synchronize with iPhone immediately when reachable
+- Preserve pending offline changes and retry delivery
+- Reject stale-day, changed-priority, and out-of-order changes
+
+### iOS and watchOS Concepts to Learn
+
+- A companion watchOS application target and embedding
+- Shared Codable messages instead of sharing a database across devices
+- WCSession activation, delegates, reachability, and delivery methods
+- MainActor isolation and observable SwiftUI state
+- Local caching, optimistic updates, acknowledgments, and idempotency
+
+### Completion Criteria
+
+- [x] Add the Watch target and Today interface
+- [x] Implement snapshot delivery and guarded completion processing
+- [x] Add automated synchronization tests
+- [ ] Verify the interface in a watchOS simulator or on Apple Watch
+- [ ] Verify two-way updates on a paired iPhone and Apple Watch
+- [ ] Verify offline delivery, app relaunch, and day rollover on real devices
 
 ## 8. UX & Polish
 
