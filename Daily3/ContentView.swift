@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
+    var onTodayChange: () -> Void = {}
     private enum Tab { case today, calendar, statistics, settings }
 
     @Environment(\.scenePhase) private var scenePhase
@@ -55,6 +56,7 @@ struct ContentView: View {
             do {
                 try await Task.sleep(for: .milliseconds(400))
                 WidgetSync.publish(snapshot, context: modelContext)
+                onTodayChange()
             } catch {
                 // A newer edit cancels this task and publishes the latest snapshot.
             }
@@ -69,8 +71,10 @@ struct ContentView: View {
             if phase == .active {
                 currentDate = .now
                 Task { await reminderSettings.refresh() }
+                onTodayChange()
             } else if phase == .background {
                 WidgetSync.publish(widgetSnapshot, context: modelContext)
+                onTodayChange()
             }
         }
     }

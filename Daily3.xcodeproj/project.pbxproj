@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		42E6BCFA919AA0E8EBB8C6F7 /* Daily3Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 983F1626DCCB580074C4A3AB /* Daily3Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9FA5EC52C3874613D33D984C /* Daily3Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F53761347E661E69347D6022 /* Daily3Watch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +33,13 @@
 			remoteGlobalIDString = 7B2C81460D84B28105ED7215;
 			remoteInfo = Daily3Widget;
 		};
+		B83A9AFC1FE316B01EAA027D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9699D6E63076629C009A428B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 99B99166CA3AC921C462238B;
+			remoteInfo = Daily3Watch;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,16 +54,29 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DF0549E506FD65612ABC601D /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				9FA5EC52C3874613D33D984C /* Daily3Watch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		157D7A9365BD5E5CEE5E38CB /* Daily3-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Daily3-Info.plist"; sourceTree = "<group>"; };
+		664118E7011CA251D5EE090C /* Daily3Watch-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Daily3Watch-Info.plist"; sourceTree = "<group>"; };
 		668EBBD39F9749A5818F6FD7 /* Daily3.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = Daily3.entitlements; sourceTree = "<group>"; };
 		9699D6EE3076629C009A428B /* Daily3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Daily3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9699D6FB307662A0009A428B /* Daily3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Daily3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9699D705307662A0009A428B /* Daily3UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Daily3UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		983F1626DCCB580074C4A3AB /* Daily3Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Daily3Widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D609685C28472CE87FCCC3A1 /* Daily3Widget.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = Daily3Widget.entitlements; sourceTree = "<group>"; };
+		F53761347E661E69347D6022 /* Daily3Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Daily3Watch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8F41F690BFAF4DE6AFFEFCC /* Daily3Widget-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Daily3Widget-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +84,11 @@
 		39780A2E5B774980B8C0F40C /* Daily3Widget */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Daily3Widget;
+			sourceTree = "<group>";
+		};
+		8D0BAEB69065666DD4314E32 /* Daily3Watch */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Daily3Watch;
 			sourceTree = "<group>";
 		};
 		9699D6F03076629C009A428B /* Daily3 */ = {
@@ -85,9 +111,21 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
+		CEFB35E79F1553AB0EB7158E /* WatchShared */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = WatchShared;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		12414AD78AF4EDF4A920A8E2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9699D6EB3076629C009A428B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -129,6 +167,8 @@
 				C094FDDCB04DFBDC8B00DD82 /* Shared */,
 				39780A2E5B774980B8C0F40C /* Daily3Widget */,
 				CE6C0287599239650A11B60C /* Configuration */,
+				8D0BAEB69065666DD4314E32 /* Daily3Watch */,
+				CEFB35E79F1553AB0EB7158E /* WatchShared */,
 			);
 			sourceTree = "<group>";
 		};
@@ -139,6 +179,7 @@
 				9699D6FB307662A0009A428B /* Daily3Tests.xctest */,
 				9699D705307662A0009A428B /* Daily3UITests.xctest */,
 				983F1626DCCB580074C4A3AB /* Daily3Widget.appex */,
+				F53761347E661E69347D6022 /* Daily3Watch.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -150,6 +191,7 @@
 				D609685C28472CE87FCCC3A1 /* Daily3Widget.entitlements */,
 				157D7A9365BD5E5CEE5E38CB /* Daily3-Info.plist */,
 				F8F41F690BFAF4DE6AFFEFCC /* Daily3Widget-Info.plist */,
+				664118E7011CA251D5EE090C /* Daily3Watch-Info.plist */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -186,15 +228,18 @@
 				9699D6EB3076629C009A428B /* Frameworks */,
 				9699D6EC3076629C009A428B /* Resources */,
 				C00C092D7972BB6FEEAED59E /* Embed App Extensions */,
+				DF0549E506FD65612ABC601D /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				6DADDAD7F2BD9EC67670B7CA /* PBXTargetDependency */,
+				F4C316717C19CDDA84B96CA2 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				9699D6F03076629C009A428B /* Daily3 */,
 				C094FDDCB04DFBDC8B00DD82 /* Shared */,
+				CEFB35E79F1553AB0EB7158E /* WatchShared */,
 			);
 			name = Daily3;
 			packageProductDependencies = (
@@ -249,6 +294,28 @@
 			productReference = 9699D705307662A0009A428B /* Daily3UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		99B99166CA3AC921C462238B /* Daily3Watch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F406E01AA5B4D44F16C8FA8A /* Build configuration list for PBXNativeTarget "Daily3Watch" */;
+			buildPhases = (
+				59ABF3884D752FE058B5D989 /* Sources */,
+				12414AD78AF4EDF4A920A8E2 /* Frameworks */,
+				02FA922FD952AE770B2A0227 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				8D0BAEB69065666DD4314E32 /* Daily3Watch */,
+				C094FDDCB04DFBDC8B00DD82 /* Shared */,
+				CEFB35E79F1553AB0EB7158E /* WatchShared */,
+			);
+			name = Daily3Watch;
+			productName = Daily3Watch;
+			productReference = F53761347E661E69347D6022 /* Daily3Watch.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -283,6 +350,9 @@
 						CreatedOnToolsVersion = 26.5;
 						TestTargetID = 9699D6ED3076629C009A428B;
 					};
+					99B99166CA3AC921C462238B = {
+						CreatedOnToolsVersion = 26.5;
+					};
 				};
 			};
 			buildConfigurationList = 9699D6E93076629C009A428B /* Build configuration list for PBXProject "Daily3" */;
@@ -303,11 +373,19 @@
 				9699D6FA307662A0009A428B /* Daily3Tests */,
 				9699D704307662A0009A428B /* Daily3UITests */,
 				7B2C81460D84B28105ED7215 /* Daily3Widget */,
+				99B99166CA3AC921C462238B /* Daily3Watch */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		02FA922FD952AE770B2A0227 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		57B5A4AD601662856B21E649 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -339,6 +417,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		59ABF3884D752FE058B5D989 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9699D6EA3076629C009A428B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -386,6 +471,12 @@
 			target = 9699D6ED3076629C009A428B /* Daily3 */;
 			targetProxy = 9699D706307662A0009A428B /* PBXContainerItemProxy */;
 		};
+		F4C316717C19CDDA84B96CA2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Daily3Watch;
+			target = 99B99166CA3AC921C462238B /* Daily3Watch */;
+			targetProxy = B83A9AFC1FE316B01EAA027D /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -410,6 +501,34 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
+		};
+		93805466AB9A56779B956979 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N2S46829XR;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Configuration/Daily3Watch-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Daily 3";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anayaydin.Daily3.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 26.5;
+			};
+			name = Release;
 		};
 		9699D70D307662A0009A428B /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -684,6 +803,33 @@
 			};
 			name = Release;
 		};
+		E4CBF80750BE44FC2DEBCE0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N2S46829XR;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Configuration/Daily3Watch-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Daily 3";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anayaydin.Daily3.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 26.5;
+			};
+			name = Debug;
+		};
 		F96AF94AE9F3234379A8EBCE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -751,6 +897,15 @@
 			buildConfigurations = (
 				F96AF94AE9F3234379A8EBCE /* Release */,
 				0AC8B2937D12E4177FB617C8 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F406E01AA5B4D44F16C8FA8A /* Build configuration list for PBXNativeTarget "Daily3Watch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93805466AB9A56779B956979 /* Release */,
+				E4CBF80750BE44FC2DEBCE0D /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -19,7 +19,7 @@ The idea is simple:
 
 ## Status
 
-🚧 **Apple Watch planned next**
+**Apple Watch companion in development**
 
 Foundation, the Today / MVP implementation, SwiftData persistence, the
 monthly calendar, statistics, notifications, and Home Screen widget
@@ -27,7 +27,9 @@ implementation are complete.
 Statistics include all-time totals and daily completion charts for the last
 7 or 30 days. Optional morning and evening reminders have configurable
 times. Small and medium Home Screen widgets show today's priorities and
-daily progress. The next phase is an Apple Watch companion.
+daily progress. The Apple Watch companion now has a Today screen and
+two-way completion synchronization using WatchConnectivity. Paired-device
+verification is still pending; this phase is not marked complete yet.
 
 ## Tech
 
@@ -37,6 +39,7 @@ daily progress. The next phase is an Apple Watch companion.
 - Swift Charts
 - UserNotifications
 - WidgetKit
+- WatchConnectivity and watchOS
 
 ## Roadmap
 
@@ -60,3 +63,5 @@ daily progress. The next phase is an Apple Watch companion.
 [Daily Reminders](docs/notifications.md)
 
 [Home Screen Widget](docs/widget.md)
+
+[Apple Watch Companion](docs/apple-watch.md)

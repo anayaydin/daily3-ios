@@ -10,17 +10,22 @@ import SwiftData
 
 @main
 struct Daily3App: App {
-    private let container: ModelContainer = {
+    private let container: ModelContainer
+    private let watchSync: PhoneWatchSync
+
+    init() {
         do {
-            return try Daily3Storage.makeContainer()
+            let container = try Daily3Storage.makeContainer()
+            self.container = container
+            watchSync = PhoneWatchSync(context: container.mainContext)
         } catch {
             fatalError("Could not open the Daily 3 store: \(error.localizedDescription)")
         }
-    }()
+    }
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(onTodayChange: watchSync.publishCurrent)
         }
         .modelContainer(container)
     }
