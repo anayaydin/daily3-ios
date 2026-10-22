@@ -19,14 +19,15 @@ The idea is simple:
 
 ## Status
 
-🚧 **Widget ready for Home Screen testing**
+🚧 **Apple Watch planned next**
 
 Foundation, the Today / MVP implementation, SwiftData persistence, the
-monthly calendar, statistics, and notification implementation are complete.
+monthly calendar, statistics, notifications, and Home Screen widget
+implementation are complete.
 Statistics include all-time totals and daily completion charts for the last
 7 or 30 days. Optional morning and evening reminders have configurable
-times. Small and medium Home Screen widgets are implemented and ready for
-manual placement and refresh checks.
+times. Small and medium Home Screen widgets show today's priorities and
+daily progress. The next phase is an Apple Watch companion.
 
 ## Tech
 
@@ -45,7 +46,7 @@ manual placement and refresh checks.
 - [x] Calendar
 - [x] Statistics
 - [x] Notifications
-- [ ] Widget
+- [x] Widget
 - [ ] Apple Watch
 - [ ] UX & Polish
 - [ ] TestFlight & App Store
